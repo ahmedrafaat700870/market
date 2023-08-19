@@ -1,0 +1,18 @@
+<tr>
+  <td>
+    <img src="{{product.product.image}}" alt="" />
+  </td>
+  <td>{{product.product.title}}</td>
+  <td>{{product.product.price}} L.E</td>
+  <td>
+    <div class="qauntity">
+      <button class="btn btn-dark">+</button>
+      <input type="form-control" [(ngModel)]="product.qty" type="number" min="1" />
+      <button class="btn btn-dark">-</button>
+    </div>
+  </td>
+  <td>{{product.qty * product.product.price}} L,E</td>
+  <td>
+    <button class="btn btn-danger">Delete</button>
+  </td>
+</tr>

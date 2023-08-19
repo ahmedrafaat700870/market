@@ -65,7 +65,7 @@ export class CartService implements ICart {
     }
   }
 
-  public getAllProductFromCart() : any [] | null
+  public getAllProductFromCart() : any []
   {
     return this.allData;
   }
