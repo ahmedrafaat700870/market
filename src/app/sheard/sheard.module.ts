@@ -26,7 +26,8 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent ,
     SpinnerComponent ,
     SelectComponent ,
-    FormsModule
+    FormsModule ,
+    RouterModule
 
   ]
 })

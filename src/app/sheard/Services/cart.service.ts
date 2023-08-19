@@ -61,7 +61,7 @@ export class CartService implements ICart {
       this.allData[index_up_product].product.description = product.product.description ;
       this.allData[index_up_product].product.price = product.product.price ;
       this.allData[index_up_product].product.title = product.product.title;
-      this.allData[index_up_product].qty = this.allData[index_up_product].qty+1;
+      this.allData[index_up_product].qty += product.qty;
     }
   }
 

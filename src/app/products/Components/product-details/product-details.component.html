@@ -1,17 +1,22 @@
-<div class="item">
-  <img src="{{data.image}}" alt="img">
+<div class="item" *ngIf="!loading">
+  <img src="{{ data?.image ?? '' }}" alt="img" />
   <div class="body">
     <h4>
-      <title>{{data.title}}</title>
+      <title>{{ data?.title }}</title>
     </h4>
-    <p>{{data.description}}</p>
+    <p>{{ data?.description }}</p>
   </div>
   <div class="px-3 mb-2 d-flex justify-content-between align-items-center">
-    <button class="btn btn-success" *ngIf="!addProduct" (click)="changeStatAddProduct($event)">Add to Cart</button>
+    <button class="btn btn-success" *ngIf="!addProduct" (click)="changeStatAddProduct($event)">
+      Add to Cart
+    </button>
     <div *ngIf="addProduct" class="d-flex w-50">
-      <input min="1" [(ngModel)]="qty" type="number" class="form-control">
+      <input min="1" [(ngModel)]="qty" type="number" class="form-control" />
       <button (click)="add($event)" class="btn btn-danger">Add</button>
     </div>
-    <span> {{data.price}} L,E</span>
+    <span> {{ data?.price }} L,E</span>
   </div>
+</div>
+<div style="height: 80vh;" *ngIf="loading" class="d-flex justify-content-center align-items-center">
+  <app-spinner></app-spinner>
 </div>

@@ -23,4 +23,10 @@ export class ProductService {
   {
     return this.http.get(environment.apiUrl + 'products/category/' + categoryName);
   }
+
+
+  public getById(id : number) : Observable<any>
+  {
+    return this.http.get(environment.apiUrl + "products/" + id);
+  }
 }

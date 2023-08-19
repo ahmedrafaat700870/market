@@ -30,22 +30,27 @@ export class AllProductsComponent implements OnInit {
     this.changeLoadingState();
     this.services.getProducts().subscribe(
       (res : productModel[] ) => {
+        this.changeLoadingState();
         this.products = res;
       } , (error: Error) => {
+        this.changeLoadingState();
         console.log(error.message);
       }
     ) ;
-    this.changeLoadingState();
+
   }
 
   GetCategories() : void {
     this.changeLoadingState();
     this.services.getAllCategories().subscribe((res: string[]) => {
       this.categories = res;
+    this.changeLoadingState();
+
     } , (error:Error) => {
+    this.changeLoadingState();
+
       console.log(error.message);
     })
-    this.changeLoadingState();
 
   }
   private GetAllProductsInCategory(CategoryName : string)
@@ -53,10 +58,13 @@ export class AllProductsComponent implements OnInit {
     this.changeLoadingState();
     this.services.filterCategories(CategoryName).subscribe((res : productModel []) => {
       this.products = res;
+    this.changeLoadingState();
+
     } , (error: Error) => {
+    this.changeLoadingState();
+
       console.log(error);
     });
-    this.changeLoadingState();
   }
 
   filterCategories(events :  Event) : void
@@ -66,13 +74,9 @@ export class AllProductsComponent implements OnInit {
   }
 
 
-  public addItemToCart(item : productModel) : void
+  public addItemToCart(item : cartItem) : void
   {
-    console.log('addItemToCart');
-    let productItem : cartItem = new cartItem();
-    productItem.product = item;
-    productItem.qty = 1;
-    this.cart.addProductToCart(productItem);
+    this.cart.addProductToCart(item);
   }
 }
 
