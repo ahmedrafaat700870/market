@@ -5,7 +5,7 @@ import { HeaderComponent } from './Components/header/header.component';
 import {  RouterModule } from '@angular/router';
 import { SpinnerComponent } from './Components/spinner/spinner.component';
 import { SelectComponent } from './Components/select/select.component';
-import { CartService } from '../cart/Services/cart.service';
+import { SCartService } from '../cart/Services/SCartService';
 import { FormsModule } from '@angular/forms';
 
 

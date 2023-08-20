@@ -13,7 +13,12 @@ export class CartService implements ICart {
     this.getDataFromLocalStorage();
   }
 
+  updateAllProduct(products : cartItem[]) : void
+  {
+    this.allData = products;
+    this.saveDataOnLocalStorage();
 
+  }
   public addProductToCart(cart_item: cartItem): void
   {
 
@@ -71,7 +76,6 @@ export class CartService implements ICart {
   }
 
 
-
   private getDataFromLocalStorage() : void {
     console.log('getDataFromLocalStorage');
 
@@ -96,6 +100,7 @@ export class CartService implements ICart {
     localStorage.setItem('cart' , savedData);
   }
 
+
 }
 export interface ICart {
    addProductToCart(product: cartItem): void ;
@@ -105,6 +110,8 @@ export interface ICart {
    updateProductInCart(product : cartItem) : void ;
 
    getAllProductFromCart() : any [] | null ;
+
+   updateAllProduct(products : cartItem[]) : void ;
 
 }
 
